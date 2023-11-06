@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>KeyBoard Keycode</title>
+        <style>
+            *{
+                font-family: sans-serif;
+            }
+            .container{
+                width: 100vw;
+                height: 100vh;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                gap: 10px;
+                align-items: center;
+            }
+            #keys{
+                box-shadow: 2px 6px 10px rgba(97, 97, 97, 0.318);
+                /* box-shadow: 2px 6px 10px rgb(69, 162, 59); */
+                padding: 0.5% 10%;
+                font-size: 32px;
+                font-weight: 600;
+                font-family: sans-serif;
+            }
+            
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div id="keys">
+                <span id="keypressed">Press any key</span>  <span id="greenKey"></span>
+            </div>
+            <div id="keycode">
+            </div>
+        </div>
+        <script>
+            document.addEventListener('keydown', function(event){
+                const printercode = document.getElementById('keycode');
+                var key = event.key;
+                
+                var keyCode = event.keyCode;
+                if(keyCode === 32){
+                    key = "Space";
+                }
+                
+                const pressed = `you pressed`;
+                
+                document.getElementById('keypressed').innerHTML = pressed;
+                const greenKey = document.getElementById('greenKey');
+                greenKey.style.color = "green";
+                document.getElementById('greenKey').innerHTML = `${key}`;
+                // let keycode = key.charCodeAt(0);
+                // if(key == "Space"){
+                //     keycode = 32;
+                // }
+                printercode.style.boxShadow = "2px 6px 10px rgba(97, 97, 97, 0.318)";
+                printercode.style.padding = "4% 4%";
+                printercode.style.fontSize = "62px";
+                printercode.style.fontWeight = "bold";
+                printercode.style.color = "rgb(69, 162, 59)";
+                document.getElementById('keycode').innerHTML = keyCode;
+            });
+        </script>
+    </body>
+</html>
