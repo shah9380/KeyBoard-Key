@@ -34,6 +34,7 @@
             <div id="keycode">
             </div>
         </div>
+        <audio id="keyPressSound" src="./mech-keyboard-02-102918.mp3"></audio>
         <script>
             document.addEventListener('keydown', function(event){
                 const printercode = document.getElementById('keycode');
@@ -60,6 +61,8 @@
                 printercode.style.fontWeight = "bold";
                 printercode.style.color = "rgb(69, 162, 59)";
                 document.getElementById('keycode').innerHTML = keyCode;
+                const keyPressSound = document.getElementById('keyPressSound');
+                keyPressSound.play();
             });
         </script>
     </body>
